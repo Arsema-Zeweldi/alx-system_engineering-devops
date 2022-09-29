@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# uses task 0 to make the a short fix
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo service nginx start
+sudo pkill -o nginx
