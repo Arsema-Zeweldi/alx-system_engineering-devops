@@ -24,7 +24,7 @@ def todo_list(employeeid):
                     completedtasks.append(t)
             count = len(completedtasks)
             print("Employee {} is done with tasks({}/{}):"
-                    .format(name, count, alltasks))
+                  .format(name, count, alltasks))
             for task in completedtasks:
                 print("\t {}".format(task.get("title")))
 
