@@ -16,8 +16,8 @@ def json_format(uid):
     tasks = requests.get(url, verify=False).json()
     name = user.get('username')
     task = [{"task": task.get("title"),
-              "username": name,
-              "completed": task.get("completed")} for task in tasks]
+             "username": name,
+             "completed": task.get("completed")} for task in tasks]
     JSON = {}
     JSON[uid] = task
     with open("{}.json".format(uid), 'w') as filejs:
