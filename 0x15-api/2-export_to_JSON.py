@@ -8,6 +8,7 @@ from sys import argv
 
 
 def json_format(employeeid):
+    """user employeeid"""
     url = "https://jsonplaceholder.typicode.com/users/{}".format(employeeid)
     user = requests.get(url, verify=False).json()
     url = "https://jsonplaceholder.typicode.com/todos?userId={}"
