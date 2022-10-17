@@ -11,7 +11,7 @@ def json_format(employeeid):
     url = "https://jsonplaceholder.typicode.com/users/{}".format(employeeid)
     user = requests.get(url, verify=False).json()
     url = "https://jsonplaceholder.typicode.com/todos?userId={}"
-        .format(employeeid)
+    .format(employeeid)
     tasks = requests.get(url, verify=False).json()
     name = user.get('username')
     task = [{"task": task.get("title"),
