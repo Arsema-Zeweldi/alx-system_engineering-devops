@@ -5,6 +5,7 @@ Returns information about a employee's TODO list
 from sys import argv
 import requests
 
+
 def todo_list(employeeid):
     """uses employee id"""
     if len(argv) > 1:
@@ -23,7 +24,7 @@ def todo_list(employeeid):
                     completedtasks.append(t)
             count = len(completedtasks)
             print("Employee {} is done with tasks({}/{}):"
-                .format(name, count, alltasks))
+                    .format(name, count, alltasks))
             for task in completedtasks:
                 print("\t {}".format(task.get("title")))
 

@@ -6,6 +6,7 @@ import csv
 import requests
 from sys import argv
 
+
 def csv_format(employeeid):
     """uses employee id"""
     url = "https://jsonplaceholder.typicode.com/users/{}".format(employeeid)
@@ -17,7 +18,7 @@ def csv_format(employeeid):
         for task in tasks:
             writer.writerow([int(employeeid), user.get('username'),
                                  task.get('completed'),
-                                 task.get('title')])
+                             task.get('title')])
 
 if __name__ == "__main__":
     csv_format(argv[1])
