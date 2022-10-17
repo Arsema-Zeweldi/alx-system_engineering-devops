@@ -2,25 +2,25 @@
 """
 export data in the JSON format
 """
+
 import json
 import requests
 from sys import argv
 
 
-def json_format(employeeid):
-    """user employeeid"""
-    url = "https://jsonplaceholder.typicode.com/users/{}".format(employeeid)
+def json_format(uid):
+    """user uid"""
+    url = "https://jsonplaceholder.typicode.com/users/{}".format(uid)
     user = requests.get(url, verify=False).json()
-    url = "https://jsonplaceholder.typicode.com/todos?userId={}"
-    .format(employeeid)
+    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(uid)
     tasks = requests.get(url, verify=False).json()
     name = user.get('username')
     task = [{"task": task.get("title"),
               "username": name,
               "completed": task.get("completed")} for task in tasks]
     JSON = {}
-    JSON[employeeid] = task
-    with open("{}.json".format(employeeid), 'w') as filejs:
+    JSON[uid] = task
+    with open("{}.json".format(uid), 'w') as filejs:
         json.dump(JSON, filejs)
 
 
