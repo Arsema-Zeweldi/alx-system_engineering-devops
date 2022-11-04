@@ -1,4 +1,4 @@
-//fix wordpress
+#fix wordpress
 exec { 'fix-wordpress':
   environment => ['DIR=/var/www/html/wp-settings.php',
                   'OLD=phpp',
