@@ -11,16 +11,15 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {'User-Agent': 'arsi_gebre'}
     parameters = {'limit': 10}
-    request = requests.get(url, headers=headers, allow_redirects=False,
+    response = requests.get(url, headers=headers, allow_redirects=False,
                             params=parameters)
 
-
-    if request.status_code == 404:
+    if response.status_code == 404:
         print(None)
         return None
 
     try:
-        data = request.json().get("data")
+        data = response.json().get("data")
         children = data.get("children")
         for child in children[:10]:
             post = child.get("data")
